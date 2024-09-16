@@ -30,9 +30,10 @@ type ErrorRef struct {
 }
 
 type TemplateData struct {
-	Type    string
-	Message string
-	Stack   []ErrorRef
+	Type     string
+	Message  string
+	Stack    []ErrorRef
+	ProxyUrl string
 }
 
 func (d TemplateData) RenderError(w http.ResponseWriter) {

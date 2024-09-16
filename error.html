@@ -85,6 +85,10 @@
         hljs.highlightAll();
         hljs.initLineNumbersOnLoad();
     </script>
+
+    {{ if ne .ProxyUrl ""}}
+        <script>new EventSource("{{ .ProxyUrl }}/internal/reload").onmessage = () => { location.reload() }</script>
+    {{ end }}
 </body>
 
 </html>

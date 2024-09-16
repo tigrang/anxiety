@@ -59,3 +59,36 @@ ANXIETY_PANIC=1 go run _samples/main.go
 ```
 
 Open [localhost:8080](http://localhost:8080)
+
+
+## Proxy
+
+Anxiety also comes with an `anxious` proxy that renders compile errors in the browser the same way.
+
+### Installation
+
+```
+go install github.com/tigrang/anxiety/cmd/anxious@latest
+```
+
+### Usage
+
+First, create a build script within your app's directory. The default build script name is `build`.
+
+Next, start the `anxious` proxy and configure it to your app's path and address.
+
+```
+anxious --app /path/to/your/app --proxy http://localhost:3001
+```
+
+Finally, update your `air` config with the followng:
+
+```
+[proxy]
+  enabled = true
+  proxy_port = 3001
+  app_port = 3000
+
+[build]
+  cmd = "anxious --notify"
+```
