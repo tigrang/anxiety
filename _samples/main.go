@@ -6,6 +6,7 @@ import (
 	"html/template"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/tigrang/anxiety"
 )
@@ -19,7 +20,7 @@ type templateData struct {
 
 func main() {
 	// No beta blockers = panic
-	anxiety.BetaBlockers = false
+	anxiety.BetaBlockers = os.Getenv("ANXIETY_PANIC") != "1"
 
 	tmpl := template.Must(template.New("test").Parse(templateString))
 
