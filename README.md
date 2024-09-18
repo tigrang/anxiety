@@ -92,3 +92,5 @@ Finally, update your `air` config with the followng:
 [build]
   cmd = "anxious --notify"
 ```
+
+![image](https://github.com/user-attachments/assets/7e42e344-1a38-405c-9c59-675945076e07)
